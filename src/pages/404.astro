@@ -1,0 +1,17 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout title="Page not found | Bee-jay Paiz">
+  <Header slot="header" />
+  <div class="flex flex-col items-center justify-center gap-6 px-6 py-24 text-center">
+    <h1 class="font-mono text-4xl font-bold text-eucalyptus-500">404</h1>
+    <p class="max-w-md font-mono text-mountain-mist-200">That page does not exist.</p>
+    <a href={`${base}`} class="font-mono text-eucalyptus-400 underline">Back home</a>
+  </div>
+  <Footer slot="footer" />
+</BaseLayout>

@@ -1,0 +1,55 @@
+---
+interface Props {
+  /** When `PUBLIC_GISCUS_MAPPING` is `specific`, set this to tie the thread to the post */
+  term?: string;
+}
+
+const { term } = Astro.props;
+
+const repo = import.meta.env.PUBLIC_GISCUS_REPO ?? '';
+const repoId = import.meta.env.PUBLIC_GISCUS_REPO_ID ?? '';
+const category = import.meta.env.PUBLIC_GISCUS_CATEGORY ?? 'Announcements';
+const categoryId = import.meta.env.PUBLIC_GISCUS_CATEGORY_ID ?? '';
+const mapping = import.meta.env.PUBLIC_GISCUS_MAPPING ?? 'pathname';
+const theme = import.meta.env.PUBLIC_GISCUS_THEME ?? 'dark';
+const lang = import.meta.env.PUBLIC_GISCUS_LANG ?? 'en';
+
+const configured = Boolean(repo && repoId && categoryId);
+---
+
+<section class="mt-16 w-full border-t border-eucalyptus-800/40 pt-10" aria-label="Comments">
+  <h2 class="mb-6 font-mono text-2xl font-semibold text-eucalyptus-500">Comments</h2>
+  {
+    configured ? (
+      <script
+        is:inline
+        src="https://giscus.app/client.js"
+        data-repo={repo}
+        data-repo-id={repoId}
+        data-category={category}
+        data-category-id={categoryId}
+        data-mapping={mapping}
+        data-term={mapping === 'specific' && term ? term : undefined}
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme={theme}
+        data-lang={lang}
+        crossorigin="anonymous"
+        async
+      />
+    ) : (
+      <p class="font-mono text-sm text-mountain-mist-200">
+        Add <code class="text-eucalyptus-400">PUBLIC_GISCUS_REPO</code>,{' '}
+        <code class="text-eucalyptus-400">PUBLIC_GISCUS_REPO_ID</code>, and{' '}
+        <code class="text-eucalyptus-400">PUBLIC_GISCUS_CATEGORY_ID</code> to your environment
+        (see{' '}
+        <a href="https://giscus.app" class="text-eucalyptus-400 underline" target="_blank" rel="noreferrer">
+          giscus.app
+        </a>
+        ) to enable comments.
+      </p>
+    )
+  }
+</section>

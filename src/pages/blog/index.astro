@@ -1,0 +1,57 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+import { getCollection } from 'astro:content';
+
+const base = import.meta.env.BASE_URL;
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+---
+
+<BaseLayout title="Blog | Bee-jay Paiz" description="Writing on web development and side projects.">
+  <Header slot="header" />
+  <div class="md:px-30 flex flex-col items-center px-10 py-10 sm:px-20 lg:px-40 xl:px-72">
+    <h1 class="my-10 text-center font-mono text-4xl font-bold uppercase text-eucalyptus-500">
+      Recent Posts
+    </h1>
+    <div class="my-12 flex w-full max-w-xl flex-col gap-12">
+      {
+        posts.map((post) => (
+          <a href={`${base}blog/${post.id}/`} class="group block">
+            <article class="rounded-xl border border-mountain-mist-900 bg-mountain-mist-950/80 p-6 shadow-lg transition hover:border-eucalyptus-800/60">
+              {post.data.heroImage ? (
+                <img
+                  src={post.data.heroImage}
+                  alt=""
+                  class="mb-4 max-h-48 w-full rounded-lg object-cover"
+                  width="800"
+                  height="400"
+                />
+              ) : null}
+              <h2 class="font-mono text-xl font-semibold text-chatelle-50 group-hover:text-eucalyptus-400">
+                {post.data.title}
+              </h2>
+              <p class="mt-2 flex flex-wrap justify-between gap-2 font-mono text-sm text-mountain-mist-200">
+                <time datetime={post.data.pubDate.toISOString()}>
+                  {post.data.pubDate.toLocaleDateString('en-GB', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                  })}
+                </time>
+                <span>by {post.data.author}</span>
+              </p>
+              {post.data.description ? (
+                <p class="mt-4 line-clamp-3 font-mono text-mountain-mist-100">{post.data.description}</p>
+              ) : null}
+            </article>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+  <Footer slot="footer" />
+</BaseLayout>

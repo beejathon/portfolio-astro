@@ -1,0 +1,21 @@
+---
+title: 'Welcome — Astro, MDX, and Giscus'
+description: 'This site is now a static Astro build with posts in the repo and comments powered by GitHub Discussions.'
+pubDate: 2026-05-02
+author: 'Bee-jay Paiz'
+heroImage: 'https://res.cloudinary.com/dgclfs5cd/image/upload/f_auto,q_auto/slwq02fofmxbbd1plvrd'
+tags: ['astro', 'meta']
+draft: false
+---
+
+This blog now lives as **Markdown/MDX** next to the site source. There is no separate CMS or API for posts: CI builds the site and GitHub Pages serves static HTML.
+
+Comments use **[giscus](https://giscus.app/)**, which stores threads in **GitHub Discussions** and lets readers sign in with a GitHub account.
+
+## Migrating older posts
+
+If you still have articles in the old Mongo-backed API, export each post to a file under `src/content/blog/` with frontmatter fields matching the collection schema (`title`, `pubDate`, `author`, optional `description`, `heroImage`, `tags`). The body can be Markdown or MDX.
+
+## Images
+
+You can keep **Cloudinary** URLs in frontmatter and markdown, or place files in `public/` and reference them with root-relative paths.

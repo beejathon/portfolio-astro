@@ -1,0 +1,47 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+
+const aboutParagraphs = [
+  `I'm a full-stack web developer based in Glasgow, Scotland with a unique blend of technical expertise and creative flair. In past lives I've been a Math & ESL teacher, a poet, and a forklift driver. With a diverse set of skills and experiences I approach web development from a fresh perspective to deliver innovative solutions.`,
+  `As a former educator, I bring a sensitivity to language, logic and structure that helps me to read and write code. My experience in teaching has not only honed my ability to break down technical concepts for diverse audiences but also underscored the importance of creating user-friendly, intuitive web experiences.`,
+  `In parallel, my background in creative writing has taught me the power of narrative and the importance of engaging an audience. Whether crafting compelling content for websites or designing interactive elements that tell a story, I leverage my writing skills to create web solutions that will resonate with users. I also find my experience with proofreading and editing to be a valuable insight into debugging, testing and the general software development life cycle.`,
+  `As a developer, I am proficient in HTML, CSS, JavaScript, TypeScript and various modern frameworks like React, Next, Vue and Nuxt. I thrive on bringing ideas to life through clean, efficient code and innovative design.`,
+  `I'm always eager to learn and embrace new challenges. Whether you're looking to build a dynamic website, improve your digital presence, or create content that connects with your audience, I'm here to help bring your vision to life. Let's build something amazing together!`,
+];
+---
+
+<BaseLayout title="Bee-jay Paiz | Full-stack Web Developer">
+  <Header slot="header" />
+  <div class="md:px-30 px-10 sm:px-20 lg:px-40 xl:px-72">
+    <section
+      class="m-auto flex min-h-[85vh] flex-col items-center gap-10 pt-10 lg:flex-row lg:justify-center lg:p-0"
+    >
+      <div class="rounded-full bg-mountain-mist-500">
+        <img
+          src="https://res.cloudinary.com/dgclfs5cd/image/upload/f_auto,q_auto/slwq02fofmxbbd1plvrd"
+          class="h-60 w-60 rounded-full object-cover lg:h-80 lg:w-80"
+          alt="Bee-jay Paiz"
+          width="320"
+          height="320"
+        />
+      </div>
+      <div class="flex flex-col gap-4 text-center font-mono text-chatelle-50 lg:text-left">
+        <span class="text-3xl font-extralight">Hello, I'm</span>
+        <h1 class="text-5xl font-extrabold uppercase text-eucalyptus-500">BEE-JAY PAIZ</h1>
+        <p class="text-3xl font-light text-eucalyptus-600">Full-stack Web Developer in Glasgow</p>
+      </div>
+    </section>
+    <div
+      id="about"
+      class="flex flex-col items-center justify-center gap-12 py-16 font-mono text-xl leading-10 text-mountain-mist-100 md:text-2xl"
+    >
+      <h2 class="text-4xl uppercase text-chatelle-50">About Me</h2>
+      {aboutParagraphs.map((text) => (
+        <p class="max-w-4xl text-pretty">{text}</p>
+      ))}
+    </div>
+  </div>
+  <Footer slot="footer" />
+</BaseLayout>

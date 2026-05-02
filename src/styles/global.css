@@ -1,0 +1,30 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
+@theme {
+  /* Portfolio palette (from legacy Tailwind config) */
+  --color-mountain-mist-50: #f6f6f6;
+  --color-mountain-mist-100: #e7e7e7;
+  --color-mountain-mist-200: #d1d1d1;
+  --color-mountain-mist-400: #989898;
+  --color-mountain-mist-500: #6d6d6d;
+  --color-mountain-mist-900: #3d3d3d;
+  --color-mountain-mist-950: #262626;
+
+  --color-eucalyptus-400: #2fd89a;
+  --color-eucalyptus-500: #0abf83;
+  --color-eucalyptus-600: #009063;
+  --color-eucalyptus-800: #036247;
+
+  --color-chatelle-50: #f5f5f8;
+  --color-chatelle-100: #ededf2;
+  --color-chatelle-200: #dedee7;
+
+  --font-mono: 'Inconsolata', ui-monospace, monospace;
+}
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+}
