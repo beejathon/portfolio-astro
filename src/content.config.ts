@@ -13,6 +13,8 @@ const blog = defineCollection({
     author: z.string().default('Bee-jay Paiz'),
     tags: z.array(z.string()).default([]),
     draft: z.boolean().default(false),
+    /** When `PUBLIC_GISCUS_MAPPING` is `specific`, Giscus uses this as `data-term` (defaults to the post file slug). */
+    giscusTerm: z.string().optional(),
   }),
 });
 
