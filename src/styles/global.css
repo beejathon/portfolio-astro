@@ -2,29 +2,38 @@
 @plugin '@tailwindcss/typography';
 
 @theme {
-  /* Portfolio palette (from legacy Tailwind config) */
-  --color-mountain-mist-50: #f6f6f6;
-  --color-mountain-mist-100: #e7e7e7;
-  --color-mountain-mist-200: #d1d1d1;
-  --color-mountain-mist-400: #989898;
-  --color-mountain-mist-500: #6d6d6d;
-  --color-mountain-mist-900: #3d3d3d;
-  --color-mountain-mist-950: #262626;
+  /* Minimal dark palette (zinc-like) */
+  --color-mountain-mist-50: #fafafa;
+  --color-mountain-mist-100: #e4e4e7;
+  --color-mountain-mist-200: #a1a1aa;
+  --color-mountain-mist-400: #71717a;
+  --color-mountain-mist-500: #52525b;
+  --color-mountain-mist-700: #3f3f46;
+  --color-mountain-mist-900: #27272a;
+  --color-mountain-mist-950: #09090b;
 
-  --color-eucalyptus-400: #2fd89a;
-  --color-eucalyptus-500: #0abf83;
-  --color-eucalyptus-600: #009063;
-  --color-eucalyptus-800: #036247;
+  /* Single restrained accent */
+  --color-eucalyptus-300: #99f6e4;
+  --color-eucalyptus-400: #5eead4;
+  --color-eucalyptus-500: #2dd4bf;
+  --color-eucalyptus-600: #14b8a6;
+  --color-eucalyptus-800: #115e59;
+  --color-eucalyptus-900: #134e4a;
 
-  --color-chatelle-50: #f5f5f8;
-  --color-chatelle-100: #ededf2;
-  --color-chatelle-200: #dedee7;
+  --color-chatelle-50: #fafafa;
+  --color-chatelle-100: #f4f4f5;
+  --color-chatelle-200: #e4e4e7;
 
-  --font-mono: 'Inconsolata', ui-monospace, monospace;
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
 }
 
 @layer base {
   html {
-    @apply scroll-smooth;
+    @apply scroll-smooth antialiased;
+  }
+
+  body {
+    font-family: var(--font-sans);
   }
 }

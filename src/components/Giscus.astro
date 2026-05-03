@@ -17,8 +17,8 @@ const lang = import.meta.env.PUBLIC_GISCUS_LANG ?? 'en';
 const configured = Boolean(repo && repoId && categoryId);
 ---
 
-<section class="mt-16 w-full border-t border-eucalyptus-800/40 pt-10" aria-label="Comments">
-  <h2 class="mb-6 font-mono text-2xl font-semibold text-eucalyptus-500">Comments</h2>
+<section class="mt-20 w-full border-t border-mountain-mist-900 pt-12" aria-label="Comments">
+  <h2 class="mb-6 text-xs font-semibold uppercase tracking-widest text-mountain-mist-400">Comments</h2>
   {
     configured ? (
       <>
@@ -43,10 +43,10 @@ const configured = Boolean(repo && repoId && categoryId);
         />
       </>
     ) : (
-      <p class="font-mono text-sm text-mountain-mist-200">
-        Add <code class="text-eucalyptus-400">PUBLIC_GISCUS_REPO</code>,{' '}
-        <code class="text-eucalyptus-400">PUBLIC_GISCUS_REPO_ID</code>, and{' '}
-        <code class="text-eucalyptus-400">PUBLIC_GISCUS_CATEGORY_ID</code> to your environment
+      <p class="text-sm text-mountain-mist-400">
+        Add <code class="font-mono text-xs text-eucalyptus-400">PUBLIC_GISCUS_REPO</code>,{' '}
+        <code class="font-mono text-xs text-eucalyptus-400">PUBLIC_GISCUS_REPO_ID</code>, and{' '}
+        <code class="font-mono text-xs text-eucalyptus-400">PUBLIC_GISCUS_CATEGORY_ID</code> to your environment
         (see{' '}
         <a href="https://giscus.app" class="text-eucalyptus-400 underline" target="_blank" rel="noreferrer">
           giscus.app

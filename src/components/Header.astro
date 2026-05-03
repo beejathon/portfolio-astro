@@ -1,71 +1,84 @@
 ---
 const base = import.meta.env.BASE_URL;
+
+const link = 'text-sm font-medium text-mountain-mist-200 transition hover:text-chatelle-50';
+const mobileLink = `${link} text-base`;
 ---
 
-<header class="flex w-full justify-between py-4">
-  <div class="ml-10 flex items-center gap-10">
-    <a href={`${base}`} class="text-2xl font-bold text-eucalyptus-500"> Bee-jay Paiz </a>
-    <nav class="hidden gap-10 lg:flex">
-      <a href={`${base}#about`} class="text-xl font-light text-eucalyptus-500"> About </a>
-      <a href={`${base}projects/`} class="text-xl font-light text-eucalyptus-500"> Projects </a>
-      <a href={`${base}bj_cv_webdev.pdf`} class="text-xl font-light text-eucalyptus-500" target="_blank" rel="noreferrer">
-        CV
+<header
+  class="sticky top-0 z-40 -mx-6 border-b border-mountain-mist-900/80 bg-mountain-mist-950/75 px-6 py-4 backdrop-blur-md sm:-mx-8 sm:px-8"
+>
+  <div class="flex w-full items-center justify-between gap-6">
+    <a
+      href={`${base}`}
+      class="shrink-0 text-sm font-semibold tracking-tight text-chatelle-50 transition hover:text-eucalyptus-400"
+    >
+      Bee-jay Paiz
+    </a>
+    <nav class="hidden items-center gap-8 md:flex">
+      <a href={`${base}#about`} class={link}>About</a>
+      <a href={`${base}projects/`} class={link}>Projects</a>
+      <a href={`${base}blog/`} class={link}>Blog</a>
+      <a
+        href={`${base}bj_cv_webdev.pdf`}
+        class="rounded-full border border-mountain-mist-900 px-3 py-1.5 text-xs font-medium tracking-wide text-chatelle-50 transition hover:border-eucalyptus-600/40 hover:bg-eucalyptus-900/20"
+        target="_blank"
+        rel="noreferrer"
+      >
+        Résumé
       </a>
     </nav>
-  </div>
-  <div class="mr-10 hidden lg:block">
-    <a href={`${base}blog/`} class="text-xl font-light text-eucalyptus-500"> Blog </a>
-  </div>
-  <details class="nav-drawer mr-10 lg:hidden" id="site-nav-drawer">
-    <summary
-      class="list-none cursor-pointer [&::-webkit-details-marker]:hidden"
-      aria-label="Open menu"
-    >
-      <span class="material-symbols-outlined text-4xl text-eucalyptus-500">menu</span>
-    </summary>
-    <div class="fixed inset-0 z-50 bg-mountain-mist-950/98 px-6 pt-6">
-      <div class="flex justify-end">
-        <button
-          type="button"
-          class="text-eucalyptus-500"
-          aria-label="Close menu"
-          onclick="document.getElementById('site-nav-drawer')?.removeAttribute('open')"
-        >
-          <span class="material-symbols-outlined text-4xl">close</span>
-        </button>
+    <details class="nav-drawer md:hidden" id="site-nav-drawer">
+      <summary
+        class="list-none cursor-pointer text-mountain-mist-200 transition hover:text-chatelle-50 [&::-webkit-details-marker]:hidden"
+        aria-label="Open menu"
+      >
+        <span class="material-symbols-outlined text-2xl">menu</span>
+      </summary>
+      <div class="fixed inset-0 z-50 bg-mountain-mist-950/95 px-6 pt-6 backdrop-blur-sm">
+        <div class="flex justify-end">
+          <button
+            type="button"
+            class="text-mountain-mist-200 hover:text-chatelle-50"
+            aria-label="Close menu"
+            onclick="document.getElementById('site-nav-drawer')?.removeAttribute('open')"
+          >
+            <span class="material-symbols-outlined text-2xl">close</span>
+          </button>
+        </div>
+        <nav class="mt-12 flex flex-col gap-8">
+          <a
+            href={`${base}#about`}
+            class={mobileLink}
+            onclick="document.getElementById('site-nav-drawer')?.removeAttribute('open')"
+          >
+            About
+          </a>
+          <a
+            href={`${base}projects/`}
+            class={mobileLink}
+            onclick="document.getElementById('site-nav-drawer')?.removeAttribute('open')"
+          >
+            Projects
+          </a>
+          <a
+            href={`${base}blog/`}
+            class={mobileLink}
+            onclick="document.getElementById('site-nav-drawer')?.removeAttribute('open')"
+          >
+            Blog
+          </a>
+          <a
+            href={`${base}bj_cv_webdev.pdf`}
+            class={`${mobileLink} rounded-full border border-mountain-mist-900 px-4 py-2 text-center`}
+            target="_blank"
+            rel="noreferrer"
+            onclick="document.getElementById('site-nav-drawer')?.removeAttribute('open')"
+          >
+            Résumé (PDF)
+          </a>
+        </nav>
       </div>
-      <nav class="mt-10 flex flex-col gap-10 pl-2">
-        <a
-          href={`${base}#about`}
-          class="text-xl font-light text-eucalyptus-500"
-          onclick="document.getElementById('site-nav-drawer')?.removeAttribute('open')"
-        >
-          About
-        </a>
-        <a
-          href={`${base}projects/`}
-          class="text-xl font-light text-eucalyptus-500"
-          onclick="document.getElementById('site-nav-drawer')?.removeAttribute('open')"
-        >
-          Projects
-        </a>
-        <a
-          href={`${base}bj_cv_webdev.pdf`}
-          class="text-xl font-light text-eucalyptus-500"
-          target="_blank"
-          rel="noreferrer"
-          onclick="document.getElementById('site-nav-drawer')?.removeAttribute('open')"
-        >
-          CV
-        </a>
-        <a
-          href={`${base}blog/`}
-          class="text-xl font-light text-eucalyptus-500"
-          onclick="document.getElementById('site-nav-drawer')?.removeAttribute('open')"
-        >
-          Blog
-        </a>
-      </nav>
-    </div>
-  </details>
+    </details>
+  </div>
 </header>

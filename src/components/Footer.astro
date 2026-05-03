@@ -1,36 +1,27 @@
 ---
 const year = new Date().getFullYear();
+
+const link =
+  'text-sm text-mountain-mist-400 transition hover:text-eucalyptus-400';
 ---
 
-<footer class="flex flex-col items-center gap-2 py-8">
-  <h2 class="font-mono text-xl font-bold uppercase text-eucalyptus-500">Get in touch:</h2>
-  <div class="flex items-center justify-center gap-10">
-    <a href="mailto:beejay@paiz.dev" aria-label="Email">
-      <span class="material-symbols-outlined pt-1 text-[48px] text-white">send</span>
-    </a>
-    <a href="https://github.com/beejathon" target="_blank" rel="noreferrer" aria-label="GitHub">
-      <img
-        class="h-10"
-        src="https://res.cloudinary.com/dgclfs5cd/image/upload/f_auto,q_auto/oejvfeio5urqc8b0q2xj"
-        alt=""
-        width="40"
-        height="40"
-      />
-    </a>
-    <a
-      href="https://www.linkedin.com/in/bee-jay-paiz-aa20253a/"
-      target="_blank"
-      rel="noreferrer"
-      aria-label="LinkedIn"
-    >
-      <img
-        class="h-10"
-        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg"
-        alt=""
-        width="40"
-        height="40"
-      />
-    </a>
+<footer class="mt-auto border-t border-mountain-mist-900 py-10">
+  <div class="flex flex-col items-center justify-between gap-6 sm:flex-row sm:items-start">
+    <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 sm:justify-start">
+      <a href="mailto:beejay@paiz.dev" class={link}>beejay@paiz.dev</a>
+      <a href="https://github.com/beejathon" target="_blank" rel="noreferrer" class={link}>GitHub</a>
+      <a
+        href="https://www.linkedin.com/in/bee-jay-paiz-aa20253a/"
+        target="_blank"
+        rel="noreferrer"
+        class={link}
+      >
+        LinkedIn
+      </a>
+      <a href={`${import.meta.env.BASE_URL}bj_cv_webdev.pdf`} class={link} target="_blank" rel="noreferrer">
+        Résumé PDF
+      </a>
+    </div>
+    <p class="text-center text-xs text-mountain-mist-500 sm:text-right">&copy; {year} Bee-jay Paiz</p>
   </div>
-  <p class="text-eucalyptus-400">&copy; {year}</p>
 </footer>

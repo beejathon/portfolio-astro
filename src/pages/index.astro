@@ -3,44 +3,77 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
 
-const aboutParagraphs = [
-  `I'm a full-stack web developer based in Glasgow, Scotland with a unique blend of technical expertise and creative flair. In past lives I've been a Math & ESL teacher, a poet, and a forklift driver. With a diverse set of skills and experiences I approach web development from a fresh perspective to deliver innovative solutions.`,
-  `As a former educator, I bring a sensitivity to language, logic and structure that helps me to read and write code. My experience in teaching has not only honed my ability to break down technical concepts for diverse audiences but also underscored the importance of creating user-friendly, intuitive web experiences.`,
-  `In parallel, my background in creative writing has taught me the power of narrative and the importance of engaging an audience. Whether crafting compelling content for websites or designing interactive elements that tell a story, I leverage my writing skills to create web solutions that will resonate with users. I also find my experience with proofreading and editing to be a valuable insight into debugging, testing and the general software development life cycle.`,
-  `As a developer, I am proficient in HTML, CSS, JavaScript, TypeScript and various modern frameworks like React, Next, Vue and Nuxt. I thrive on bringing ideas to life through clean, efficient code and innovative design.`,
-  `I'm always eager to learn and embrace new challenges. Whether you're looking to build a dynamic website, improve your digital presence, or create content that connects with your audience, I'm here to help bring your vision to life. Let's build something amazing together!`,
+const base = import.meta.env.BASE_URL;
+
+const aboutIntro = [
+  `I'm a full-stack developer in Glasgow, Scotland—Shopify themes, headless storefronts, and lately React Native and embedded Shopify apps. I care about performance, clear UX, and systems that stay maintainable.`,
+  `Before engineering I taught math and ESL, wrote poetry, and drove a forklift. That mix shapes how I communicate, structure problems, and ship.`,
+];
+
+const focusAreas = [
+  'Shopify: Liquid themes, Storefront / Customer Account APIs, admin & account UI extensions',
+  'Mobile: Expo, Apollo GraphQL, Firebase, EAS',
+  'Web: TypeScript, React, Vue/Nuxt, Tailwind',
 ];
 ---
 
 <BaseLayout title="Bee-jay Paiz | Full-stack Web Developer">
   <Header slot="header" />
-  <div class="md:px-30 px-10 sm:px-20 lg:px-40 xl:px-72">
-    <section
-      class="m-auto flex min-h-[85vh] flex-col items-center gap-10 pt-10 lg:flex-row lg:justify-center lg:p-0"
-    >
-      <div class="rounded-full bg-mountain-mist-500">
+  <div class="pb-20 pt-12 md:pt-16">
+    <section class="flex flex-col items-center gap-12 lg:flex-row lg:items-start lg:justify-between lg:gap-16">
+      <div class="shrink-0 ring-1 ring-white/10 ring-offset-4 ring-offset-mountain-mist-950">
         <img
           src="https://res.cloudinary.com/dgclfs5cd/image/upload/f_auto,q_auto/slwq02fofmxbbd1plvrd"
-          class="h-60 w-60 rounded-full object-cover lg:h-80 lg:w-80"
+          class="h-44 w-44 object-cover sm:h-52 sm:w-52"
           alt="Bee-jay Paiz"
-          width="320"
-          height="320"
+          width="208"
+          height="208"
         />
       </div>
-      <div class="flex flex-col gap-4 text-center font-mono text-chatelle-50 lg:text-left">
-        <span class="text-3xl font-extralight">Hello, I'm</span>
-        <h1 class="text-5xl font-extrabold uppercase text-eucalyptus-500">BEE-JAY PAIZ</h1>
-        <p class="text-3xl font-light text-eucalyptus-600">Full-stack Web Developer in Glasgow</p>
+      <div class="max-w-xl flex-1 text-center lg:text-left">
+        <p class="text-sm font-medium tracking-wide text-mountain-mist-400">Full-stack · Glasgow</p>
+        <h1 class="mt-3 text-4xl font-semibold tracking-tight text-chatelle-50 sm:text-5xl">
+          Bee-jay Paiz
+        </h1>
+        <p class="mt-4 text-lg leading-relaxed text-mountain-mist-200">
+          I build fast, accessible commerce experiences—from storefronts and themes to mobile apps and
+          Shopify admin tooling.
+        </p>
+        <div class="mt-8 flex flex-wrap items-center justify-center gap-3 lg:justify-start">
+          <a
+            href={`${base}projects/`}
+            class="rounded-full bg-chatelle-50 px-5 py-2.5 text-sm font-medium text-mountain-mist-950 transition hover:bg-mountain-mist-100"
+          >
+            View projects
+          </a>
+          <a
+            href={`${base}blog/`}
+            class="rounded-full border border-mountain-mist-900 px-5 py-2.5 text-sm font-medium text-chatelle-50 transition hover:border-mountain-mist-700 hover:bg-white/5"
+          >
+            Blog
+          </a>
+          <a
+            href={`${base}bj_cv_webdev.pdf`}
+            class="text-sm font-medium text-eucalyptus-400 underline-offset-4 transition hover:text-eucalyptus-300 hover:underline"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Download résumé (PDF)
+          </a>
+        </div>
       </div>
     </section>
-    <div
-      id="about"
-      class="flex flex-col items-center justify-center gap-12 py-16 font-mono text-xl leading-10 text-mountain-mist-100 md:text-2xl"
-    >
-      <h2 class="text-4xl uppercase text-chatelle-50">About Me</h2>
-      {aboutParagraphs.map((text) => (
-        <p class="max-w-4xl text-pretty">{text}</p>
-      ))}
+
+    <div id="about" class="mt-24 max-w-2xl scroll-mt-24">
+      <h2 class="text-xs font-semibold uppercase tracking-widest text-mountain-mist-400">About</h2>
+      <div class="mt-6 space-y-5 text-base leading-relaxed text-mountain-mist-200">
+        {aboutIntro.map((text) => <p>{text}</p>)}
+      </div>
+      <ul class="mt-8 space-y-3 border-l border-mountain-mist-900 pl-5 text-sm leading-relaxed text-mountain-mist-300">
+        {focusAreas.map((item) => (
+          <li>{item}</li>
+        ))}
+      </ul>
     </div>
   </div>
   <Footer slot="footer" />

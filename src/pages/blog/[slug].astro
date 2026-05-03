@@ -24,12 +24,12 @@ const giscusTerm = post.data.giscusTerm ?? post.id;
   description={post.data.description ?? 'Blog post'}
 >
   <Header slot="header" />
-  <article class="md:px-30 flex flex-col items-center px-10 py-10 sm:px-20 lg:px-40 xl:px-72">
-    <header class="mb-8 w-full max-w-[90ch] text-center">
-      <h1 class="my-6 font-mono text-3xl font-bold uppercase text-eucalyptus-500 md:text-4xl">
+  <article class="flex flex-col items-center pb-16 pt-10">
+    <header class="mb-10 w-full max-w-2xl">
+      <h1 class="text-3xl font-semibold tracking-tight text-chatelle-50 md:text-4xl">
         {post.data.title}
       </h1>
-      <p class="flex flex-wrap justify-center gap-3 font-mono text-sm text-mountain-mist-200">
+      <p class="mt-4 flex flex-wrap gap-x-3 gap-y-1 text-sm text-mountain-mist-400">
         <time datetime={post.data.pubDate.toISOString()}>
           {post.data.pubDate.toLocaleDateString('en-GB', {
             year: 'numeric',
@@ -37,14 +37,13 @@ const giscusTerm = post.data.giscusTerm ?? post.id;
             day: 'numeric',
           })}
         </time>
-        <span aria-hidden="true">·</span>
-        <span>by {post.data.author}</span>
+        <span>· {post.data.author}</span>
       </p>
       {
         post.data.tags?.length ? (
-          <ul class="mt-4 flex flex-wrap justify-center gap-2">
+          <ul class="mt-5 flex flex-wrap gap-2">
             {post.data.tags.map((tag) => (
-              <li class="rounded-full bg-eucalyptus-900/40 px-3 py-1 font-mono text-xs text-eucalyptus-300">
+              <li class="border border-mountain-mist-900 px-2.5 py-0.5 text-xs text-mountain-mist-300">
                 {tag}
               </li>
             ))}
@@ -56,17 +55,17 @@ const giscusTerm = post.data.giscusTerm ?? post.id;
       <img
         src={post.data.heroImage}
         alt=""
-        class="mb-10 max-h-96 w-full max-w-3xl rounded-xl object-cover"
+        class="mb-10 max-h-80 w-full max-w-2xl border border-mountain-mist-900 object-cover"
         width="1200"
         height="630"
       />
     ) : null}
     <div
-      class="prose prose-invert w-full max-w-[90ch] prose-headings:font-mono prose-p:font-mono prose-p:leading-relaxed prose-a:text-eucalyptus-400 prose-code:text-eucalyptus-300"
+      class="prose prose-invert w-full max-w-2xl prose-headings:font-sans prose-headings:font-semibold prose-headings:tracking-tight prose-p:font-sans prose-p:leading-relaxed prose-a:text-eucalyptus-400 prose-a:no-underline hover:prose-a:underline prose-code:rounded prose-code:bg-mountain-mist-900 prose-code:px-1 prose-code:py-0.5 prose-code:text-mountain-mist-100 prose-code:before:content-none prose-code:after:content-none"
     >
       <Content />
     </div>
-    <div class="w-full max-w-[90ch]">
+    <div class="mt-6 w-full max-w-2xl">
       <Giscus term={giscusTerm} />
     </div>
   </article>
