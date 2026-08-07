@@ -7,60 +7,72 @@ const base = import.meta.env.BASE_URL;
 
 const projects = [
   {
-    title: 'galore Landing Page',
-    description: `Landing page for a circular fashion startup. Took Figma design from concept to completion. Utilized Nuxt.js for SSR and DaisyUI / Tailwind CSS for styling.`,
-    preview:
-      'https://res.cloudinary.com/dgclfs5cd/video/upload/f_auto:video,q_auto/ryfpvw85ha7gaqfqtwcg',
+    title: 'Nail Order',
+    description: `Expo/React Native commerce app for a UK nail-pro brand. Shop and checkout via Shopify Storefront and Customer Account APIs (Apollo), with Firebase-backed features including wishlist, client consultations, restock alerts, and an in-app pricing calculator.`,
+    previewType: 'image' as const,
+    previews: [
+      `${base}projects/nail-order/home.png`,
+      `${base}projects/nail-order/shop.png`,
+      `${base}projects/nail-order/product.png`,
+      `${base}projects/nail-order/cart.png`,
+      `${base}projects/nail-order/calculator.png`,
+      `${base}projects/nail-order/consultation.png`,
+    ],
+    ghRepo: '',
+    links: [
+      {
+        label: 'App Store',
+        href: 'https://apps.apple.com/gb/app/nail-order/id6742821751',
+      },
+      {
+        label: 'Play Store',
+        href: 'https://play.google.com/store/apps/details?id=com.nailorder.NOapp&hl=en',
+      },
+    ],
+    techIcons: [
+      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
+      'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/expo/expo-original-wordmark.svg',
+      'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/graphql/graphql-plain.svg',
+      'https://res.cloudinary.com/dgclfs5cd/image/upload/f_auto,q_auto/tcjvasc3one2l0pjv1s6',
+      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain-wordmark.svg',
+    ],
+  },
+  {
+    title: 'Nail Order Shopify Theme',
+    description: `Custom Shopify Liquid theme work (Lorenza base) for a UK nail-pro brand. Added NO-prefixed snippets and sections for free-shipping progress, VAT price toggle, metaobject sale campaigns, YouTube facade / video hero, gel-chart metafields, and a customer stock-room page—keeping core theme diffs minimal for safer upgrades. Also tackled Core Web Vitals (CLS and LCP) to pass performance tests, plus SEO improvements including JSON-LD structured data.`,
+    previewType: 'image' as const,
+    previews: [
+      `${base}projects/nail-order-theme/home.png`,
+      `${base}projects/nail-order-theme/collection.png`,
+      `${base}projects/nail-order-theme/stock-room.png`,
+      `${base}projects/nail-order-theme/wishlists.png`,
+    ],
+    ghRepo: '',
+    link: 'https://nailorder.co.uk',
+    techIcons: [
+      'https://res.cloudinary.com/dgclfs5cd/image/upload/f_auto,q_auto/tcjvasc3one2l0pjv1s6',
+      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain-wordmark.svg',
+      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain-wordmark.svg',
+      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
+    ],
+  },
+  {
+    title: 'galore platform front-end',
+    description: `Front-end for galore's digital passport experience for luxury handbags. Built with Vite, React, and TypeScript; MapLibre maps for provenance and chain of custody, plus service history, care guides, and item storytelling. Styled with Tailwind CSS.`,
+    previewType: 'image' as const,
+    previews: [
+      `${base}projects/galore-platform/handbag.png`,
+      `${base}projects/galore-platform/chain-of-custody.png`,
+      `${base}projects/galore-platform/origin.png`,
+      `${base}projects/galore-platform/service-history.png`,
+      `${base}projects/galore-platform/care-guide.png`,
+    ],
     ghRepo: '',
     link: 'https://galore.club',
     techIcons: [
-      'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nuxtjs/nuxtjs-plain-wordmark.svg',
-      'https://res.cloudinary.com/dgclfs5cd/image/upload/f_auto,q_auto/sttocfxsaaaexjtdbthv',
-      'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg',
-    ],
-  },
-  {
-    title: 'galore Shopify Headless Custom Storefront',
-    description: `Custom storefront for a circular fashion startup. Frontend built with Vite + React utilizing Shopify Storefront API for business logic, Apollo Client to handle GraphQL data and Redux for state management. Styled with Tailwind CSS.`,
-    preview:
-      'https://res.cloudinary.com/dgclfs5cd/video/upload/f_auto:video,q_auto/xxrjvfdy7w44ltk9wvx7',
-    ghRepo: '',
-    link: 'https://galore-frontend-1ca0fcb7d916.herokuapp.com/',
-    techIcons: [
       'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vitejs/vitejs-original.svg',
       'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
-      'https://res.cloudinary.com/dgclfs5cd/image/upload/f_auto,q_auto/tcjvasc3one2l0pjv1s6',
-      'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redux/redux-original.svg',
-      'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg',
-    ],
-  },
-  {
-    title: 'MERN Blog',
-    description: `Full-stack blogging app utilizing a REST API only backend. Built with two front-ends: a client for reading and commenting and a second CMS for publishing and editing posts/comments. This site replaces that stack with Astro, MDX, and Giscus.`,
-    preview:
-      'https://res.cloudinary.com/dgclfs5cd/image/upload/v1724803153/asmrmdafcalpgsllkv9s.mp4',
-    ghRepo: 'https://github.com/beejathon/blog-api',
-    link: `${base}blog/`,
-    techIcons: [
-      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original-wordmark.svg',
-      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original-wordmark.svg',
-      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
-      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original-wordmark.svg',
-      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg',
-      'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg',
-    ],
-  },
-  {
-    title: 'notbadreads',
-    description: `A goodreads clone where users can search a database of books, organize a personal library, write reviews and interact with other users. Built with React and utilizes Firebase for backend-as-a-service.`,
-    preview:
-      'https://res.cloudinary.com/dgclfs5cd/image/upload/v1724803154/vj9bkcyzo7piblxnl38c.mp4',
-    ghRepo: 'https://github.com/beejathon/notbadreads',
-    link: 'https://beejathon.github.io/notbadreads/',
-    techIcons: [
-      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
-      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain-wordmark.svg',
-      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain-wordmark.svg',
+      'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg',
       'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg',
     ],
   },
@@ -101,21 +113,50 @@ const projects = [
                     />
                   </a>
                 ) : null}
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noreferrer"
-                  class="inline-flex items-center gap-1 text-sm text-eucalyptus-400 transition hover:text-eucalyptus-300"
-                  aria-label="Open project"
-                >
-                  Visit
-                  <span class="material-symbols-outlined text-base">arrow_outward</span>
-                </a>
+                {'links' in project && project.links ? (
+                  project.links.map((item) => (
+                    <a
+                      href={item.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      class="inline-flex items-center gap-1 text-sm text-eucalyptus-400 transition hover:text-eucalyptus-300"
+                    >
+                      {item.label}
+                      <span class="material-symbols-outlined text-base">arrow_outward</span>
+                    </a>
+                  ))
+                ) : 'link' in project && project.link ? (
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noreferrer"
+                    class="inline-flex items-center gap-1 text-sm text-eucalyptus-400 transition hover:text-eucalyptus-300"
+                    aria-label="Open project"
+                  >
+                    Visit
+                    <span class="material-symbols-outlined text-base">arrow_outward</span>
+                  </a>
+                ) : null}
               </div>
             </div>
-            <div class="overflow-hidden border border-mountain-mist-900">
-              <video src={project.preview} autoplay loop muted playsinline class="w-full" />
-            </div>
+            {'previewType' in project && project.previewType === 'image' && 'previews' in project ? (
+              <div class="flex gap-3 overflow-x-auto border border-mountain-mist-900 p-3">
+                {project.previews.map((src) => (
+                  <img
+                    src={src}
+                    alt={`${project.title} screenshot`}
+                    class="h-72 w-auto shrink-0 rounded-sm object-contain"
+                    loading="lazy"
+                    width="160"
+                    height="288"
+                  />
+                ))}
+              </div>
+            ) : 'preview' in project && project.preview ? (
+              <div class="overflow-hidden border border-mountain-mist-900">
+                <video src={project.preview} autoplay loop muted playsinline class="w-full" />
+              </div>
+            ) : null}
             <p class="text-sm leading-relaxed text-mountain-mist-300">{project.description}</p>
             <div class="flex flex-wrap gap-3 opacity-90">
               {project.techIcons.map((icon) => (
